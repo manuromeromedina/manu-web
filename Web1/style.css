@@ -1,0 +1,154 @@
+/* RESETS */
+html,
+body {
+  font-family: "Nunito Sans", serif;
+  font-size: 18px;
+  background-color: #030e47;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.stage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  flex-direction: column; /* Asegura que los elementos estén en una columna */
+}
+
+/* Mariposa */
+.mariposa {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.mariposa-turn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 150px;
+  perspective: 1000px;
+  transform-origin: 50% 80%;
+  transform-style: preserve-3d;
+  filter: drop-shadow(50px 30px 10px rgba(0, 0, 0, 2.5));
+}
+
+.mariposa-flutter {
+  width: 2rem;
+  height: 8rem;
+  position: relative;
+  margin: 0 auto;
+  background: url("https://assets.codepen.io/2273448/butterfly-body.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transform-style: preserve-3d;
+  transform: rotateX(25deg) rotateY(5deg);
+}
+
+.mariposa-flutter::before,
+.mariposa-flutter::after {
+  position: absolute;
+  top: 5%;
+  margin: auto;
+  content: "";
+  height: 100%;
+  width: 250%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transform-style: preserve-3d;
+  animation-delay: 0;
+}
+
+.mariposa-flutter::before {
+  background-image: url("https://assets.codepen.io/2273448/butterfly-wing.png");
+  transform-origin: 0% 50%;
+  animation: flutter-r 0.3s infinite ease-out;
+  left: 55%;
+}
+
+.mariposa-flutter::after {
+  background-image: url("https://assets.codepen.io/2273448/butterfly-wing-l.png");
+  transform-origin: 100% 50%;
+  animation: flutter-l 0.3s infinite ease-out;
+  right: 55%;
+}
+
+/* Animación de las alas */
+@keyframes flutter-r {
+  0%, 100% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(-40deg);
+  }
+}
+
+@keyframes flutter-l {
+  0%, 100% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(40deg);
+  }
+}
+
+/* Estilo para el texto desplazable */
+.scrolling-text {
+  position: absolute;
+  top: 20px; /* Parte superior de la pantalla */
+  left: 0;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  font-weight: bold;
+  z-index: 1;
+}
+
+#scrollingText span {
+  display: inline-block;
+  padding-right: 0; /* Añadimos un espacio para que el texto se desplace */
+  animation: scroll-text 50s linear infinite;
+}
+
+/* Animación de desplazamiento del texto */
+@keyframes scroll-text {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Estilo para el texto debajo de la mariposa */
+.click-text {
+  font-family: serif; /* Usar fuente serif */
+  font-size: 14px; /* Letra pequeña */
+  font-style: italic; /* Letra en cursiva */
+  color: white;
+  margin-top: -60px; /* Espacio entre la mariposa y el texto */
+  text-align: center; /* Centrar el texto */
+  z-index: 1;
+}
