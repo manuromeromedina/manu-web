@@ -162,3 +162,14 @@ div {
   text-align: center; /* Centrar el texto */
   z-index: 1; /* Asegura que esté visible encima de otros elementos */
 }
+
+/* Estilo para "SUBIR VOLUMEN" */
+.volume-text {
+  font-family: serif; /* Misma fuente que el texto "CLICK EN LA MARIPOSA" */
+  font-size: 14px; /* Tamaño similar */
+  font-style: italic; /* Cursiva */
+  color: white; /* Color blanco */
+  margin-top: 5px; /* Separación mínima entre los textos */
+  text-align: center; /* Centrado */
+  z-index: 1;
+}
